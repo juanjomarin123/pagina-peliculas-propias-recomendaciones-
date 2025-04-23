@@ -1,0 +1,63 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    background-color: #141414;
+    padding: 40px 20px;
+    border-radius: 12px;
+  }
+  
+  h1, h2 {
+    color: red;
+  }
+  
+  .form-control,
+  .form-select {
+    background-color: #1c1c1c;
+    color: white;
+    border: 1px solid gray;
+  }
+  
+  
+  .form-control::placeholder {
+    color: white;
+  }
+  
+  #Agregar {
+    background-color: red;
+    color: white;
+    border: none;
+    font-weight: bold;
+  }
+  #Agregar:hover{
+    background-color: black;
+  }
+  
+  .btn-outline-light {
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+  }
+  
+   .card {
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  #promedio {
+    color: red;
+    font-weight: bold;
+  }
+  
+  footer {
+    color: gray;
+    background-color: black;
+  }
+  
+  .card-title{
+    color: red;
+  }

@@ -1,0 +1,22 @@
+.card {
+    background-color: #141414;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .card img {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+    color: #ccc;
+  }
+  
