@@ -1,4 +1,4 @@
-localStorage.clear();  //limpiamos el local si se desea
+//localStorage.clear();  //limpiamos el local si se desea
 
 const peliculas = localStorage.getItem("peliculasIngresadas") ? JSON.parse(localStorage.getItem("peliculasIngresadas")) : [];
 const nombre = document.getElementById("nombre");
