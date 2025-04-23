@@ -61,3 +61,9 @@ body {
   .card-title{
     color: red;
   }
+  input.form-control:focus { /*esto hace q los input no se pongan de color blanco */
+  background-color: #212529; 
+  color: white; 
+  border-color: #dc3545; 
+  box-shadow: none; 
+  } 
