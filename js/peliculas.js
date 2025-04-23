@@ -5,7 +5,7 @@ const nombre = document.getElementById("nombre");
 const genero = document.getElementById("genero");
 const calificacion = document.getElementById("calificacion");
 const contenedor = document.getElementById("peliculasCajita");
-const filtroGenero = document.getElementById("filtro-genero");
+const filtroGenero = document.getElementById("filtroGenero");
 const promedio = document.getElementById("promedio");
 const botonAgregar = document.getElementById("Agregar");
 
@@ -67,7 +67,7 @@ function mostrarPeliculas() { //funcion q imprime las peliculas ingresadas
             col.className = "col-md-4 mb-4";
 
             const card = document.createElement("div");
-            card.className = "card h-100";
+            card.className = "card h-100"; //h=height iguala el tamaño de las cartas en altura
 
             const body = document.createElement("div");
             body.className = "card-body";
@@ -82,7 +82,7 @@ function mostrarPeliculas() { //funcion q imprime las peliculas ingresadas
 
             const calif = document.createElement("p");
             calif.className = "card-text";
-            calif.textContent = "Calificacion: " + pelicula.calificacion;
+            calif.textContent = "Calificacion: " + pelicula.calificacion + "!!"; //aqui tambien puedes usar toFixed :D
 
             body.appendChild(titulo);
             body.appendChild(generoText);
@@ -96,7 +96,7 @@ function mostrarPeliculas() { //funcion q imprime las peliculas ingresadas
             cantidad++;
         }
     });
-
+//al dejar un if con una variable dentro sin ninguna comparacion esta solo verifica q la variable exista o por asi decirlo true y lo que sabemos es q 0 se considera false
     if (cantidad) {
         const resultado = suma / cantidad;
         promedio.textContent = "Promedio: " + resultado; // Puedes usar .toFixed(1) si quiero  limitar los decimales
