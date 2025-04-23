@@ -11,9 +11,9 @@ function obtenerPeliculas(pagina) {
   const url = "https://api.themoviedb.org/3/movie/popular?api_key=" + ApiKey + "&language=es&page=" + pagina;
 
   fetch(url)
-    .then(respuesta => respuesta.json())
-    .then(datos => {
-      mostrarPeliculas(datos.results);
+    .then(peliculitas => peliculitas.json())
+    .then(peliculas => {
+      mostrarPeliculas(peliculas.results);
       mostrarPaginacion(pagina);
     });
 }
@@ -23,7 +23,8 @@ function mostrarPeliculas(listaPeliculas) {
 
   listaPeliculas.forEach(pelicula => {
     const Caja = document.createElement("div");
-    Caja.className = "col-md-4 mb-4";
+   Caja.className = "col-12 col-sm-6 col-md-4 mb-4";//esto funciona para q dependiendo del tamaño de la pantalla las cartas sean de a 3,2 o 1.
+
 
     const Tarjeta = document.createElement("div");
     Tarjeta.className = "card h-100 bg-dark text-white";
@@ -104,8 +105,8 @@ function mostrarPaginacion(paginaSeleccionada) {
   ContenedorPaginacion.innerHTML = "";
 
   // Contenedor para los botones de paginación
-  const Fila = document.createElement("div");
-  Fila.className = "d-flex justify-content-center gap-2 mt-4";
+  const Fila = document.createElement('div');
+  Fila.className = "d-flex flex-wrap justify-content-center gap-2 mt-4";
 
   // Botón Anterior
   const BotonAnterior = document.createElement("button");

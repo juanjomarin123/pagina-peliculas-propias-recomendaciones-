@@ -1,6 +1,6 @@
-//localStorage.clear();
+localStorage.clear();  //limpiamos el local si se desea
 
-const peliculas = JSON.parse(localStorage.getItem("peliculasIngresadas")) || [];
+const peliculas = localStorage.getItem("peliculasIngresadas") ? JSON.parse(localStorage.getItem("peliculasIngresadas")) : [];
 const nombre = document.getElementById("nombre");
 const genero = document.getElementById("genero");
 const calificacion = document.getElementById("calificacion");
@@ -9,10 +9,13 @@ const filtroGenero = document.getElementById("filtro-genero");
 const promedio = document.getElementById("promedio");
 const botonAgregar = document.getElementById("Agregar");
 
+mostrarPeliculas();//imprimimos las peliculas al inicio, obviamente si es q hay en el local storage
+actualizarFiltroGeneros()//actualizamos los filtros con las peliculas q hayan y sino igualmente se crea una opcion de todos nada mas
+
 botonAgregar.addEventListener("click", () => {
-    if(nombre.value == "" || genero.value == ""){
+    if(nombre.value == "" || genero.value == ""){//verificamos q no esten vacios los inputs
         alert("todos los campos son obligatorios");
-        return;
+        return;//usar return cancela lo q estamos haciendo y lo regresa al inicio
     }
     if (calificacion.value < 1 || calificacion.value > 10 || calificacion.value === "") {
         alert("La calificacion debe estar entre 1 y 10");
@@ -27,7 +30,7 @@ botonAgregar.addEventListener("click", () => {
         }
     });
 
-    if (nombreGeneroExistente) {
+    if (nombreGeneroExistente == true) {
         alert("Ya existe una pelicula con este nombre y genero.");
         return;
     }
@@ -52,8 +55,8 @@ botonAgregar.addEventListener("click", () => {
     actualizarFiltroGeneros(); // Actualiza el filtro de generos
 });
 
-const mostrarPeliculas = () => {
-    contenedor.innerHTML = "";
+function mostrarPeliculas() { //funcion q imprime las peliculas ingresadas
+    contenedor.innerHTML = "";//limpiamos donde van las peliculas
 
     let suma = 0;
     let cantidad = 0;
@@ -93,7 +96,7 @@ const mostrarPeliculas = () => {
             cantidad++;
         }
     });
-                                    
+
     if (cantidad) {
         const resultado = suma / cantidad;
         promedio.textContent = "Promedio: " + resultado; // Puedes usar .toFixed(1) si quiero  limitar los decimales
@@ -102,13 +105,13 @@ const mostrarPeliculas = () => {
     }
 };
 
-const actualizarFiltroGeneros = () => {
-    filtroGenero.innerHTML = "<option value=''>Todos</option>"; // Mantiene la opción de "Todos"
+function actualizarFiltroGeneros()  {
+    filtroGenero.innerHTML = "<option value=''>todos</option>";//limpiamos las opciones del filtro y a la vez creamos la opcion de todos 
     const generos = [];
     
     peliculas.forEach(pelicula => {
         // Verificamos si el género no está en el arreglo 
-        if (generos.indexOf(pelicula.genero) == -1) {
+        if (generos.indexOf(pelicula.genero) == -1){//el -1 es una forma de verificar q algo no esta en un arreglo 
             generos.push(pelicula.genero);
             const option = document.createElement("option");
             option.value = pelicula.genero;
@@ -118,8 +121,8 @@ const actualizarFiltroGeneros = () => {
     });
 };
 
-filtroGenero.addEventListener("click", () => {
+filtroGenero.addEventListener("change", () => {//en este caso ya q es un select es mejor usar change q verifica si el valor del select cambia, en caso 'click' solo determina el click al select en general,pero igual funcionaria
     mostrarPeliculas();
 });
 
-mostrarPeliculas();
+
