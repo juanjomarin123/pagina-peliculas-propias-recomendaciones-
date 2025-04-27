@@ -8,6 +8,13 @@ const contenedor = document.getElementById("peliculasCajita");
 const filtroGenero = document.getElementById("filtroGenero");
 const promedio = document.getElementById("promedio");
 const botonAgregar = document.getElementById("Agregar");
+const imprimirNombre = document.getElementById("imprimirNombre")
+
+const Nombre = localStorage.getItem('Nombre');
+
+
+imprimirNombre.textContent = "Bienvenido , " + Nombre // Imprime el nombre dentro del h1
+
 
 mostrarPeliculas();//imprimimos las peliculas al inicio, obviamente si es q hay en el local storage
 actualizarFiltroGeneros()//actualizamos los filtros con las peliculas q hayan y sino igualmente se crea una opcion de todos nada mas
