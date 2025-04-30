@@ -128,7 +128,7 @@ function mostrarPaginacion(paginaSeleccionada) {//esta funcion crea los botones 
   for (let i = 1; i <= MaxPaginas; i++) {//este for se usa para no tener q crear uno por uno los botones hasta el maximo de paginas
     const BotonPagina = document.createElement("button");
     BotonPagina.textContent = i;
-    BotonPagina.className = "btn " + (i === paginaSeleccionada ? "btn-light" : "btn-outline-light");//cambia el color de la pagina si es que la pagina en la que estamos es la misma 
+    BotonPagina.className = "btn " + (i == paginaSeleccionada ? "btn-light" : "btn-outline-light");//cambia el color de la pagina si es que la pagina en la que estamos es la misma 
     BotonPagina.addEventListener("click", () => {
       obtenerPeliculas(i);//cada boton tiene un listener que llamara a la funcion que pide la api, hace la promesa, e imprime todo de nuevo  y le mandamos la i que recibiremos como pagina arriba
     });
@@ -146,6 +146,6 @@ function mostrarPaginacion(paginaSeleccionada) {//esta funcion crea los botones 
     }
   });
 
-  Fila.appendChild(BotonSiguiente);//a la fila q es el div q tiene a todos los botones se le estuvieron agregando todos los botones
+  Fila.appendChild(BotonSiguiente);//a la fila q es el div q tiene a todos los botones se le agrega el boton siguiente
   ContenedorPaginacion.appendChild(Fila);//se envian todos estos botones  a el div que tenemos en el html para imprimir, q tiene un row para que esten bien organizadas 
 }
